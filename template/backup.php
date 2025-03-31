@@ -2,13 +2,13 @@
 
 
 $backups = [];
-$files = scandir(JWM_BACKUP_FOLDER);
+$files = scandir(JM_BACKUP_FOLDER);
 
 foreach ($files as $file) {
     if (pathinfo($file, PATHINFO_EXTENSION) === 'jwm') {
-        $size = filesize(JWM_BACKUP_FOLDER . $file);
+        $size = filesize(JM_BACKUP_FOLDER . $file);
         $formattedSize = formatSize($size);
-        $date = gmdate("Y-m-d H:i:s", filemtime(JWM_BACKUP_FOLDER . $file));
+        $date = gmdate("Y-m-d H:i:s", filemtime(JM_BACKUP_FOLDER . $file));
 
         $backups[] = [
             'name' => $file,
@@ -36,7 +36,7 @@ if (count($backups) > 0) {
             <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center justify-content-center">
                     <img
-                        src="<?php echo esc_url(JWM_PLUGIN_URL) . 'assets/images/backup.png' ?>"
+                        src="<?php echo esc_url(JM_PLUGIN_URL) . 'assets/images/backup.png' ?>"
                         alt="justpkdev"
                         style="width: 35px; height: 35px;">
                     <h5 class="mt-2 ms-2">Backups</h5>
@@ -77,7 +77,7 @@ if (count($backups) > 0) {
                                             </button>
                                             <button
                                                 class="btn btn-css-create mt-0 rounded-0 px-3 text-white border-bottom download"
-                                                style="font-size: 14px; height: 35px;" data-path="<?php echo esc_url(JWM_BACKUP_URL) ?>">
+                                                style="font-size: 14px; height: 35px;" data-path="<?php echo esc_url(JM_BACKUP_URL) ?>">
                                                 download
                                             </button>
                                             <button
@@ -99,6 +99,6 @@ if (count($backups) > 0) {
         </div>
     </div>
     <div class="col-lg-3 p-1">
-        <?php include JWM_PLUGIN_DIR . 'template/contact.php' ?>
+        <?php include JM_PLUGIN_DIR . 'template/contact.php' ?>
     </div>
 </div>

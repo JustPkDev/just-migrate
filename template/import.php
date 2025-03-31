@@ -4,7 +4,7 @@
             <div class="d-flex justify-content-between">
                 <div class="d-flex align-items-center justify-content-center">
                     <img
-                        src="<?php echo esc_url(JWM_PLUGIN_URL) . 'assets/images/import.png' ?>"
+                        src="<?php echo esc_url(JM_PLUGIN_URL) . 'assets/images/import.png' ?>"
                         alt="justpkdev"
                         style="width: 35px; height: 35px;">
                     <h5 class="mt-2 ms-2">Import</h5>
@@ -20,6 +20,6 @@
         </div>
     </div>
     <div class="col-lg-3 p-1">
-        <?php include JWM_PLUGIN_DIR . 'template/contact.php' ?>
+        <?php include JM_PLUGIN_DIR . 'template/contact.php' ?>
     </div>
 </div>

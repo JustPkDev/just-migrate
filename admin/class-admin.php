@@ -18,7 +18,7 @@ class Admin
             'manage_options',
             'jwm-plugin',
             [__CLASS__, 'main_page'],
-            JWM_PLUGIN_URL . 'assets/images/icon.png',
+            JM_PLUGIN_URL . 'assets/images/icon.png',
             75
         );
 
@@ -45,12 +45,12 @@ class Admin
 
     public static function main_page()
     {
-        include JWM_PLUGIN_DIR . 'template/backup.php';
+        include JM_PLUGIN_DIR . 'template/backup.php';
     }
 
     public static function import_page()
     {
-        include JWM_PLUGIN_DIR . 'template/import.php';
+        include JM_PLUGIN_DIR . 'template/import.php';
     }
 
     public static function notice()

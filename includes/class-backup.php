@@ -3,9 +3,9 @@
 class Backup
 {
 
-    private $robot_path = JWM_BACKUP_FOLDER . "robot.txt";
-    private $database_path = JWM_BACKUP_FOLDER . "database.sql";
-    private $css_path = JWM_BACKUP_FOLDER . "style.css";
+    private $robot_path = JM_BACKUP_FOLDER . "robot.txt";
+    private $database_path = JM_BACKUP_FOLDER . "database.sql";
+    private $css_path = JM_BACKUP_FOLDER . "style.css";
     private $htaccess_path = ABSPATH . ".htaccess";
     private $robot_content = "";
     private $database_content = "";
@@ -47,8 +47,8 @@ class Backup
     private function create_content()
     {
         $this->robot_content .= "User-agent: * \n";
-        $this->robot_content .= "Disallow: /" . JWM_BACKUP_NAME . "/\n";
-        $this->robot_content .= "Disallow: /wp-content/" . JWM_BACKUP_NAME . "/\n";
+        $this->robot_content .= "Disallow: /" . JM_BACKUP_NAME . "/\n";
+        $this->robot_content .= "Disallow: /wp-content/" . JM_BACKUP_NAME . "/\n";
 
         if (!function_exists('WP_Filesystem')) {
             require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -75,8 +75,8 @@ class Backup
         WP_Filesystem();
         global $wp_filesystem;
 
-        if (!$wp_filesystem->is_dir(JWM_BACKUP_FOLDER)) {
-            $wp_filesystem->mkdir(JWM_BACKUP_FOLDER, FS_CHMOD_DIR);
+        if (!$wp_filesystem->is_dir(JM_BACKUP_FOLDER)) {
+            $wp_filesystem->mkdir(JM_BACKUP_FOLDER, FS_CHMOD_DIR);
         } else {
             return;
         }
@@ -93,7 +93,7 @@ class Backup
         $updatedContent = preg_replace('/<IfModule mod_php\.c>.*?<\/IfModule>/s', '', $content);
         file_put_contents($instance->htaccess_path, $updatedContent);
 
-        self::delete_dir(JWM_BACKUP_FOLDER);
+        self::delete_dir(JM_BACKUP_FOLDER);
     }
 
     public static function create_sql()
@@ -123,10 +123,10 @@ class Backup
     public static function create_zip()
     {
         $instance = new self();
-        $zip_path = JWM_BACKUP_FOLDER . wp_parse_url(home_url(), PHP_URL_HOST) . '-' . sanitize_file_name(get_bloginfo('name')) .
+        $zip_path = JM_BACKUP_FOLDER . wp_parse_url(home_url(), PHP_URL_HOST) . '-' . sanitize_file_name(get_bloginfo('name')) .
             "-backup-" . time() . '-' . wp_rand(0, 10000) . '.jwm';
         $source = WP_CONTENT_DIR;
-        $excluded = [JWM_BACKUP_NAME, 'just-wp-migrate'];
+        $excluded = [JM_BACKUP_NAME, 'just-wp-migrate'];
         $zip = new ZipArchive();
 
         if ($zip->open($zip_path, ZipArchive::CREATE) !== true) {
@@ -166,7 +166,7 @@ class Backup
 
     public static function extract_file($file_path)
     {
-        $extractPath = JWM_BACKUP_FOLDER . 'extracted-' . time();
+        $extractPath = JM_BACKUP_FOLDER . 'extracted-' . time();
 
         if (!function_exists('WP_Filesystem')) {
             require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -203,7 +203,7 @@ class Backup
         $wpContent = WP_CONTENT_DIR;
 
         $skipFolders = [
-            basename(JWM_BACKUP_FOLDER),
+            basename(JM_BACKUP_FOLDER),
             basename(ABSPATH . '/wp-content/plugins/'),
             basename(ABSPATH . '/wp-content/plugins/just-wp-migrate/')
         ];
@@ -384,12 +384,12 @@ class Backup
             wp_die();
         }
 
-        if (!file_exists(JWM_BACKUP_FOLDER . $_POST['name'])) {
+        if (!file_exists(JM_BACKUP_FOLDER . $_POST['name'])) {
             wp_send_json_error(["message" => "File is not exist!"]);
             wp_die();
         }
 
-        $file_path = trailingslashit(JWM_BACKUP_FOLDER) . sanitize_file_name($_POST['name']);
+        $file_path = trailingslashit(JM_BACKUP_FOLDER) . sanitize_file_name($_POST['name']);
 
         if (!$wp_filesystem->exists($file_path) || !$wp_filesystem->delete($file_path, false)) {
             wp_send_json_error(["message" => "Cannot Delete!"]);
@@ -425,7 +425,7 @@ class Backup
             wp_die();
         }
 
-        if (!file_exists(JWM_BACKUP_FOLDER . $_POST['name'])) {
+        if (!file_exists(JM_BACKUP_FOLDER . $_POST['name'])) {
             wp_send_json_error(["message" => "File is not exist!"]);
             wp_die();
         }
@@ -439,7 +439,7 @@ class Backup
         sleep(2);
 
         $instance->send_progress('Extracting', 20);
-        $ext_path = $instance->extract_file(JWM_BACKUP_FOLDER . $_POST['name']);
+        $ext_path = $instance->extract_file(JM_BACKUP_FOLDER . $_POST['name']);
         if (!$ext_path) {
             wp_send_json_error(["message" => "File is not extracted!"]);
             wp_die();

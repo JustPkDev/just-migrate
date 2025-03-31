@@ -1,34 +1,34 @@
 <?php
 
-class Links
+class JM_LINKS
 {
 
     public static function jwp_migrate_assets()
     {
         wp_enqueue_style(
             'jwp-migrate-bootstrap-css',
-            JWM_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.min.css',
+            JM_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.min.css',
             [],
             "1.0.0"
         );
 
         wp_enqueue_style(
             'jwp-migrate-style-css',
-            JWM_PLUGIN_URL . 'assets/css/style.css',
+            JM_PLUGIN_URL . 'assets/css/style.css',
             ['jwp-migrate-bootstrap-css'],
             '1.0.0'
         );
 
         wp_enqueue_style(
             'jwp-migrate-sweetalert-css',
-            JWM_PLUGIN_URL . 'assets/sweetalert/sweetalert2.min.css',
+            JM_PLUGIN_URL . 'assets/sweetalert/sweetalert2.min.css',
             [],
             '1.0.0'
         );
 
         wp_enqueue_script(
             'jwp-migrate-bootstrap-script',
-            JWM_PLUGIN_URL . 'assets/bootstrap/js/bootstrap.bundle.min.js',
+            JM_PLUGIN_URL . 'assets/bootstrap/js/bootstrap.bundle.min.js',
             ['jquery'],
             '1.0.0',
             true
@@ -36,7 +36,7 @@ class Links
 
         wp_enqueue_script(
             'jwp-migrate-backup-script',
-            JWM_PLUGIN_URL . "assets/js/backup.js",
+            JM_PLUGIN_URL . "assets/js/backup.js",
             ['jquery', 'jwp-migrate-bootstrap-script'],
             '1.0.0',
             true
@@ -44,7 +44,7 @@ class Links
 
         wp_enqueue_script(
             'jwp-migrate-sweetalert-script',
-            JWM_PLUGIN_URL . 'assets/sweetalert/sweetalert2.min.js',
+            JM_PLUGIN_URL . 'assets/sweetalert/sweetalert2.min.js',
             ['jquery', 'jwp-migrate-bootstrap-script'],
             '1.0.0',
             true
@@ -52,7 +52,7 @@ class Links
 
         wp_enqueue_script(
             'jwp-migrate-import-script',
-            JWM_PLUGIN_URL . "assets/js/import.js",
+            JM_PLUGIN_URL . "assets/js/import.js",
             ['jquery', 'jwp-migrate-sweetalert-script'],
             '1.0.0',
             true

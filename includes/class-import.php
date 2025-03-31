@@ -32,7 +32,7 @@ class Import
         $movefile = wp_handle_upload($file, $upload_overrides);
 
         if ($movefile && !isset($movefile['error'])) {
-            $targetDir = trailingslashit(JWM_BACKUP_FOLDER);
+            $targetDir = trailingslashit(JM_BACKUP_FOLDER);
             $newFileName = sanitize_file_name(pathinfo($file['name'], PATHINFO_FILENAME)) . '-' . wp_rand(1000, 9999) . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
             $newFilePath = $targetDir . $newFileName;
 
