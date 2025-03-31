@@ -13,8 +13,8 @@ class Admin
     {
         // Main Menu
         add_menu_page(
-            'Just WP Migrate',
-            'Just WP Migrate',
+            'Just Migrate',
+            'Just Migrate',
             'manage_options',
             'jwm-plugin',
             [__CLASS__, 'main_page'],
@@ -57,7 +57,7 @@ class Admin
     {
         if (Option::get('jwm_activated')) {
             echo '<div class="notice notice-info is-dismissible" style="border-left-color: #0073aa; padding: 15px;">
-                    Thanks for Choosing <strong>Just WP Migrate</strong>.
+                    Thanks for Choosing <strong>Just Migrate</strong>.
                   </div>';
 
             Option::delete('jwm_activated');
