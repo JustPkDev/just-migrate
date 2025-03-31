@@ -1,6 +1,6 @@
 <?php
 
-// Plugin Name: Just WP Migrate
+// Plugin Name: Just Migrate
 // Plugin URI: https://justpkdev.vercel.app/projects/27
 // Description: A fast and efficient WordPress migration tool.
 // Version: 1.0.0

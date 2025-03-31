@@ -1,11 +1,11 @@
-# Just WP Migrate  
+# Just Migrate  
 
 ### The Ultimate WordPress Migration Plugin (Fully Free & Open Source)  
 
 ---
 
 ## Description  
-Just WP Migrate is a **fully free, fast, and optimized WordPress migration plugin** that allows you to easily **back up, download, restore, and manage your WordPress site without any limitations.**  
+Just Migrate is a **fully free, fast, and optimized WordPress migration plugin** that allows you to easily **back up, download, restore, and manage your WordPress site without any limitations.**  
 
 ---
 
@@ -25,7 +25,7 @@ Just WP Migrate is a **fully free, fast, and optimized WordPress migration plugi
 ✅ Yes, it can handle large websites without performance issues.  
 
 ### 2️⃣ Is there any premium version or hidden cost?  
-✅ No, Just WP Migrate is fully free and open-source.  
+✅ No, Just Migrate is fully free and open-source.  
 
 ### 3️⃣ Can I restore a backup on another hosting provider?  
 ✅ Yes, the backup file is fully compatible with any hosting server.  
